@@ -38,25 +38,11 @@ var handler = function (e) {
 	lastStrokeTime = performance.now();
 	lastStroke = e.charCode;
     
- //    console.log(e);
- //    var stroke = (String.fromCharCode(e.charCode));
- //    var strokeTime = performance.now();	
- //    console.log(String.fromCharCode(e.charCode));
- //    console.log(performance.now());
-   	
 
-	// console.log(keystrokes);
-	// console.log("last key: " + String.fromCharCode(lastStroke));
-	// lastStroke = e.charCode;
 }
 
-
-// window.addEventListener("keyup",    handler); 
-// window.addEventListener("keydown",  handler); 
 window.addEventListener("keypress", handler);
 
 
 console.log(keystrokes);
-// console.log(keystrokes["c"]);
-// console.log(keystrokes["c"]["a"]);
-// console.log(keystrokes["c"]["a"][0]);
+
