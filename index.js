@@ -12,7 +12,7 @@ var handler = function (e) {
 		lastStrokeTime = performance.now();
 		lastStroke = e.keyCode;
 	}else{
-		if(performance.now() -  lastStrokeTime <= 2000){
+		if(performance.now() -  lastStrokeTime <= 1000){
 			// does the keystroke dictionairy has an 
 			//entry for the keystroke before the current on?
 			console.log(e.keyCode);
