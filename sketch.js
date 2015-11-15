@@ -54,6 +54,7 @@ function draw() {
           stroke(255);
           strokeWeight(0.09);
           line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
+          line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
           noStroke();
           rect(i * cellWidth, j * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
         }
