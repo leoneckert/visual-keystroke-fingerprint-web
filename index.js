@@ -12,6 +12,7 @@ var handler = function (e) {
 		lastStrokeTime = performance.now();
 		lastStroke = e.keyCode;
 	}else{
+		// here the measurment is still milli seconds
 		if(performance.now() -  lastStrokeTime <= 1000){
 			// does the keystroke dictionairy has an 
 			//entry for the keystroke before the current on?
@@ -28,8 +29,8 @@ var handler = function (e) {
 				keystrokes[lastStroke][e.keyCode] = [];
 			}
 			//at this point the array to hold the time difference, must exist. 
-			//lets put the time in
-			keystrokes[lastStroke][e.keyCode].push(performance.now() -  lastStrokeTime);
+			//lets put the time in, making it nanoseconds
+			keystrokes[lastStroke][e.keyCode].push(1000000 * (performance.now() -  lastStrokeTime));
 			console.log(keystrokes);
 		}
 

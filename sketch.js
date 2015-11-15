@@ -1,8 +1,8 @@
 var cnv;
 var allKeys_keys = [];
 
-var cellWidth = 17;
-var cellHeight = 6;
+var cellWidth = 20;
+var cellHeight = 10;
 
 
 function setup() {
@@ -11,16 +11,15 @@ function setup() {
     allKeys_keys[count] = str(i);
     count++;
   }
-  // print(allKeys_keys[0]);
-  // print(allKeys_keys[1]);
-  // print(allKeys_keys[2]);
-  // print(allKeys_keys.length);
   for (var i = 0; i < allKeys_keys.length; i++) {
     print(allKeys_keys[i]);
   }
 
+
+
   cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
   cnv.background(0);
+
 
 }
 
@@ -45,15 +44,14 @@ function draw() {
           print(average);
         
           noStroke();
-          // var greyTone = map(average, 0, 1000, 0, 255);
-          var greyTone = map(average, 0, 500, 0, 255);
+          var greyTone = map(average, 0, 500000000, 100, 255);
           var notBlueTone = greyTone;
           if(greyTone >= 255){
-            notBlueTone = map(average, 500, 1000, 255, 0);
+            notBlueTone = map(average, 500000000, 1000000000, 255, 100);
           }
           fill(notBlueTone,notBlueTone,greyTone);
           // fill(greyTone);
-          rect(i * cellWidth, j * cellHeight, map(average, 0, 1000, 0, cellWidth), cellHeight);
+          rect(i * cellWidth, j * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
         }
       }
     }
