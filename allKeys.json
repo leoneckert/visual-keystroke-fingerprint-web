@@ -64,6 +64,13 @@ var allKeys = {
 	"222": "'"
 }
 
+// var count = 0;
+// for(key in allKeys) {
+//     count++;
+// }
+// console.log(count);
+// >>>>>>>>>>>>gives back a size of 62
+
 // var allKeys = {
 // 	"8" : "[backspace]",
 // 	"9" : "[tab]",

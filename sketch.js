@@ -14,10 +14,11 @@ function setup() {
   for (var i = 0; i < allKeys_keys.length; i++) {
     print(allKeys_keys[i]);
   }
+  var w = windowWidth - (windowWidth % 62);
+  cnv = createCanvas( w , cellHeight * allKeys_keys.length);
+  cellWidth = w / 62;
 
-
-
-  cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
+  // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
   cnv.background(0);
 
 
