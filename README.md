@@ -30,7 +30,10 @@
 			No one else in the world types the way you do.
 
 ### for now:
-This project’s first goal is to visualise such keystroke fingerprints to make them comparable and highlight their uniqueness. 
+This project’s first goal is to visualise such keystroke fingerprints to make them comparable and highlight their uniqueness. This is in progress and not yet finalised. 
+
+![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/vkf_1.gif)
+
 
 ### what next:
 The next step will be to implement a obfuscation system that makes it harder for other parties to collect that personal data of ours, by slightly shifting the times at which keystroke signals reach the system. At the moment I can think of that in two ways, either delaying keystroke signals, bringing them all on fixed interval times. Or making it possible to shre and exchange each other fingerprints, “using” them and making it imposssible to use them as i unique identifier. 
