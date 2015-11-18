@@ -39,8 +39,8 @@ This project’s first goal is to visualise such keystroke fingerprints to make 
 
 
 ### what next:
-The next step will be to implement a obfuscation system that makes it harder for other parties to collect that personal data of ours, by slightly shifting the times at which keystroke signals reach the system. At the moment I can think of that in two ways, either delaying keystroke signals, bringing them all on fixed interval times. Or making it possible to shre and exchange each other fingerprints, “using” them and making it imposssible to use them as i unique identifier. 
+The next step will be to implement a obfuscation system that makes it harder for other parties to collect that personal data of ours, by slightly shifting the times at which keystroke signals reach the system. At the moment I can think of that in two ways, either delaying keystroke signals, bringing them all on fixed interval times. Or making it possible to share and exchange each other fingerprints, “using” them as masks and hence making it imposssible to (mis-)use them as unique identifiers. 
 reference: 
 - exchanging supermarkets loyalty cards
 - exchanging sim cards
-- book: obfuscation
+- book: Obfuscation by Finn Brunton and Helen Nissenbaum
