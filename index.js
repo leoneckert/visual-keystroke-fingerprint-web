@@ -1,6 +1,8 @@
 //https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
 //http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 
+
+
 var lastStrokeTime = null;
 var lastStroke = null;
 
