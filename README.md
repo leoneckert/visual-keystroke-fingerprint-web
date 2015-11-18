@@ -21,8 +21,7 @@
 			. . . 
 
 4. Imagine you always measured that time passing between your keystrokes and calculated the average for every key pair. 
-![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/vkf_1.gif)
-
+![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/raw_fingerprint.png)
 
 5. <b>Example:</b> of the 500 000 times you typed first “H”, then “e”, the average time that passed in between the two keystrokes was 32 102 301 nano seconds. 
 
@@ -34,7 +33,7 @@
 ### for now:
 This project’s first goal is to visualise such keystroke fingerprints to make them comparable and highlight their uniqueness. This is in progress and not yet finalised. 
 
-![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/raw_fingerprint.png)
+![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/vkf_1.gif)
 
 
 ### what next:
