@@ -1,5 +1,7 @@
 # Visual Keystroke Fingerprint 
 
+[work-in-progress demo](http://itp.leoneckert.com/icm/finals/progress_1/)
+
 ## What’s a keystroke fingerprint?
 
 1. <b>Example:</b> you type the word “Hello”.

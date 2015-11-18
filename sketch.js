@@ -6,14 +6,15 @@ var cellHeight = 10;
 
 
 function setup() {
+  // lets see how many keys we have specified to "watch"
+  // and assign them to the allKeys_keys array
+  // in order to better be able to refer to them by number
   var count = 0;
   for (i in allKeys) {
     allKeys_keys[count] = str(i);
     count++;
   }
-  for (var i = 0; i < allKeys_keys.length; i++) {
-    print(allKeys_keys[i]);
-  }
+  // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
   var w = windowWidth - (windowWidth % 62);
   cnv = createCanvas( w , cellHeight * allKeys_keys.length);
   cellWidth = w / 62;
@@ -31,18 +32,18 @@ function draw() {
     if (keystrokes[allKeys_keys[i]]) {
       for (var j = 0; j < allKeys_keys.length; j++) {
         if (keystrokes[allKeys_keys[i]][allKeys_keys[j]]) {
-          print("lengt of this is: ");
-          print(keystrokes[allKeys_keys[i]][allKeys_keys[j]].length);
-          print("values are: ");
+          // print("lengt of this is: ");
+          // print(keystrokes[allKeys_keys[i]][allKeys_keys[j]].length);
+          // print("values are: ");
           var average = 0;
           var sum = 0;
           for(var k = 0; k < keystrokes[allKeys_keys[i]][allKeys_keys[j]].length; k++){
-            print(keystrokes[allKeys_keys[i]][allKeys_keys[j]][k]);
+            // print(keystrokes[allKeys_keys[i]][allKeys_keys[j]][k]);
             sum = sum + keystrokes[allKeys_keys[i]][allKeys_keys[j]][k];
           }
           average = sum / keystrokes[allKeys_keys[i]][allKeys_keys[j]].length;
-          print("average is: ");
-          print(average);
+          // print("average is: ");
+          // print(average);
         
           noStroke();
           var greyTone = map(average, 0, 500000000, 100, 255);
