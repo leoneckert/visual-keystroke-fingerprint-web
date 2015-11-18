@@ -9,15 +9,23 @@ function setup() {
   // lets see how many keys we have specified to "watch"
   // and assign them to the allKeys_keys array
   // in order to better be able to refer to them by number
-  var count = 0;
+  var keyRange = 0;
   for (i in allKeys) {
-    allKeys_keys[count] = str(i);
-    count++;
+    allKeys_keys[keyRange] = str(i);
+    keyRange++;
   }
-  // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
-  var w = windowWidth - (windowWidth % 62);
-  cnv = createCanvas( w , cellHeight * allKeys_keys.length);
-  cellWidth = w / 62;
+  // // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
+  // var w = windowWidth - (windowWidth % 62);
+  // cnv = createCanvas( w , cellHeight * allKeys_keys.length);
+  // cellWidth = w / 62;
+
+  //specifiy size of canvas
+  var w = 650;
+  var h = 400;
+  cellWidth = w/keyRange;
+  cellHeight = h/keyRange;
+  cnv = createCanvas( w ,h);
+
 
   // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
   cnv.background(0);
@@ -53,8 +61,8 @@ function draw() {
           }
           fill(notBlueTone,notBlueTone,greyTone);
           // fill(greyTone);
-          stroke(255);
-          strokeWeight(0.09);
+          stroke(255, 12);
+          // strokeWeight(0.09);
           line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
           line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
           noStroke();
