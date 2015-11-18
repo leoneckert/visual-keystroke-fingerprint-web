@@ -6,7 +6,8 @@
 
 2. There is time passing between every two keys you press, not a lot, but in nano seconds it can be measured fairly precisely. 
 
-3. Example:	You type:		“H”
+3. Example:	
+			You type:		“H”
 						
 						43 700 000 nano seconds pass
 			
