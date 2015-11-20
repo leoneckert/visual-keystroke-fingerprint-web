@@ -14,17 +14,17 @@ function setup() {
     allKeys_keys[keyRange] = str(i);
     keyRange++;
   }
-  // // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
-  // var w = windowWidth - (windowWidth % 62);
-  // cnv = createCanvas( w , cellHeight * allKeys_keys.length);
-  // cellWidth = w / 62;
+  // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
+  var w = windowWidth - (windowWidth % 62);
+  cnv = createCanvas( w , cellHeight * allKeys_keys.length);
+  cellWidth = w / 62;
 
-  //specifiy size of canvas
-  var w = 650;
-  var h = 400;
-  cellWidth = w/keyRange;
-  cellHeight = h/keyRange;
-  cnv = createCanvas( w ,h);
+  // //specifiy size of canvas
+  // var w = 650;
+  // var h = 400;
+  // cellWidth = w/keyRange;
+  // cellHeight = h/keyRange;
+  // cnv = createCanvas( w ,h);
 
 
   // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);

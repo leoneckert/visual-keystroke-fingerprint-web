@@ -47,3 +47,5 @@ reference:
 - exchanging supermarkets loyalty cards
 - exchanging sim cards
 - book: Obfuscation by Finn Brunton and Helen Nissenbaum
+
+![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/raw_fingerprint.png)
