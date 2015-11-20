@@ -48,4 +48,4 @@ reference:
 - exchanging sim cards
 - book: Obfuscation by Finn Brunton and Helen Nissenbaum
 
-![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/raw_fingerprint.png)
+![Visualised Fingerprints](https://github.com/leoneckert/visual-keystroke-fingerprint-web/blob/master/keystroke_fingerprint_pub.png)
