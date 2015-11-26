@@ -20,11 +20,11 @@ function setup() {
   cellWidth = w / 62;
 
   // //specifiy size of canvas
-  // var w = 650;
-  // var h = 400;
-  // cellWidth = w/keyRange;
-  // cellHeight = h/keyRange;
-  // cnv = createCanvas( w ,h);
+  var w = 650;
+  var h = 400;
+  cellWidth = w/keyRange;
+  cellHeight = h/keyRange;
+  cnv = createCanvas( w ,h);
 
 
   // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
@@ -54,14 +54,35 @@ function draw() {
           // print(average);
         
           noStroke();
-          var greyTone = map(average, 0, 500000000, 100, 255);
-          var notBlueTone = greyTone;
-          if(greyTone >= 255){
-            notBlueTone = map(average, 500000000, 1000000000, 255, 100);
+
+          // var greyTone = map(average, 0, 500000000, 100, 255);
+          // var notBlueTone = greyTone;
+          // if(greyTone >= 255){
+          //   notBlueTone = map(average, 500000000, 1000000000, 255, 100);
+          // }
+          
+
+          // fill(notBlueTone,notBlueTone,greyTone);
+
+          var redTone = 255;
+          // var greenTone = 0;
+          // var blueTone = 0;
+          var greenTone = map(average, 0,1000000000/5, 0, 255);
+          var blueTone = map(average, 0,1000000000/5, 0, 255);
+          if(average >= 1000000000 - (1000000000/4)){
+            var redTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
+            var greenTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
+            // var blueTone = map(average, 0,1000000000/5, 0, 255);
           }
-          fill(notBlueTone,notBlueTone,greyTone);
+          // if(redTone <= 0){
+          //   // var redTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
+          //   var greenTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
+          //   var blueTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
+          // }
+
+          fill(redTone, greenTone, blueTone);
           // fill(greyTone);
-          stroke(255, 12);
+          stroke(255, 3);
           // strokeWeight(0.09);
           line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
           line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
