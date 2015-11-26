@@ -84,8 +84,10 @@ function onReaderLoad(event){
     console.log(event.target.result);
     var obj = JSON.parse(event.target.result);
     // alert_data(obj.name, obj.family);
-    data.keystrokes = obj;
+    data.keystrokes = obj.data;
     console.log(data);
+    data.accuracy = obj.accuracy;
+	document.getElementById('acc').innerHTML = "accuracy: " + String(data.accuracy);
 
 }
     
