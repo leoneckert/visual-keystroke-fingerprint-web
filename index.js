@@ -3,7 +3,12 @@
 
 var lastStrokeTime = null;
 var lastStroke = null;
-var threshold = 1000 //in milli seconds
+var threshold = 1000; //in milli seconds
+var accuracy = 0;
+var data = {
+	"accuracy" : 0,
+	"keystrokes": {}
+}
 
 
 var handler = function (e) { 
@@ -33,24 +38,27 @@ var handler = function (e) {
 			// because that's where we "are coming from".
 			// lets check if lastStroke is already in the array;
 			console.log("--> in array");
-			if(!keystrokes[lastStroke]){
+			if(!data.keystrokes[lastStroke]){
 				//if not, make, we make an entry:
-				keystrokes[lastStroke] = {};
+				data.keystrokes[lastStroke] = {};
 				
 			}
 			
 			// next we check if the entry of lastStroke 
 			// already has an entry for the current stroke. 
-			if(!keystrokes[lastStroke][e.keyCode]){
+			if(!data.keystrokes[lastStroke][e.keyCode]){
 				//if not, add one with an array the value:
-				keystrokes[lastStroke][e.keyCode] = [];
+				data.keystrokes[lastStroke][e.keyCode] = [];
 			}
 			//at this point the array to store the time difference between the two keystrokes into the array.
 			//lets put the time in, making it nanoseconds
-			keystrokes[lastStroke][e.keyCode].push(1000000 * (performance.now() -  lastStrokeTime));
+			data.keystrokes[lastStroke][e.keyCode].push(1000000 * (performance.now() -  lastStrokeTime));
 
+			data.accuracy = data.accuracy + 1;
+			document.getElementById('acc').innerHTML = "accuracy: " + String(data.accuracy);
 			//print the updated array:
-			console.log(keystrokes);
+			console.log(data);
+
 
 		}else{
 			// if the time between the two strokes was longer than the threshold defined,
@@ -66,6 +74,27 @@ var handler = function (e) {
     
 }
 
+function onChange(event) {
+    var reader = new FileReader();
+    reader.onload = onReaderLoad;
+    reader.readAsText(event.target.files[0]);
+}
+
+function onReaderLoad(event){
+    console.log(event.target.result);
+    var obj = JSON.parse(event.target.result);
+    // alert_data(obj.name, obj.family);
+    data.keystrokes = obj;
+    console.log(data);
+
+}
+    
+function alert_data(name, family){
+    alert('Name : ' + name + ', Family : ' + family);
+}
+
+
 // other key events: keydown, keypress
 window.addEventListener("keydown", handler);
+document.getElementById('file').addEventListener('change', onChange);
 

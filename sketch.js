@@ -37,19 +37,19 @@ function draw() {
   background(0);
 
   for (var i = 0; i < allKeys_keys.length; i++) {
-    if (keystrokes[allKeys_keys[i]]) {
+    if (data.keystrokes[allKeys_keys[i]]) {
       for (var j = 0; j < allKeys_keys.length; j++) {
-        if (keystrokes[allKeys_keys[i]][allKeys_keys[j]]) {
+        if (data.keystrokes[allKeys_keys[i]][allKeys_keys[j]]) {
           // print("lengt of this is: ");
           // print(keystrokes[allKeys_keys[i]][allKeys_keys[j]].length);
           // print("values are: ");
           var average = 0;
           var sum = 0;
-          for(var k = 0; k < keystrokes[allKeys_keys[i]][allKeys_keys[j]].length; k++){
+          for(var k = 0; k < data.keystrokes[allKeys_keys[i]][allKeys_keys[j]].length; k++){
             // print(keystrokes[allKeys_keys[i]][allKeys_keys[j]][k]);
-            sum = sum + keystrokes[allKeys_keys[i]][allKeys_keys[j]][k];
+            sum = sum + data.keystrokes[allKeys_keys[i]][allKeys_keys[j]][k];
           }
-          average = sum / keystrokes[allKeys_keys[i]][allKeys_keys[j]].length;
+          average = sum / data.keystrokes[allKeys_keys[i]][allKeys_keys[j]].length;
           // print("average is: ");
           // print(average);
         
