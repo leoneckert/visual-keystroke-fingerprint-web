@@ -9,6 +9,7 @@ var data = {
 	"accuracy" : 0,
 	"keystrokes": {}
 }
+var uploadedFile = false;
 
 
 var handler = function (e) { 
@@ -27,7 +28,7 @@ var handler = function (e) {
 		lastStroke = e.keyCode;
 
 		console.log("--> not in array bc first letter pressed");
-	}else{
+	}else if(uploadedFile == false){
 		//if it is not the first key pressed,
 		// we check wether the last key pressed before this one
 		// was longer ago than our threshold (here still in miliseconds)
@@ -84,7 +85,13 @@ function onReaderLoad(event){
     console.log(event.target.result);
     var obj = JSON.parse(event.target.result);
     // alert_data(obj.name, obj.family);
+    // data.keystrokes = {};
     data.keystrokes = obj.data;
+    document.getElementById('textarea').value = '';
+    document.getElementById('textarea').value = '\n\n\n\n\n\n                                    [+] you uploaded a keylogger file.\n                                    [>] typing into this box, will not affect your visual keyprint anymore.';
+    document.getElementById("textarea").disabled = true;
+    uploadedFile = true;
+    // document.getElementById('textarea').innerHTML = "[+] you uploaded a keylogger file.\n[>] typing into this box, will not affect your visual keyprint anymore. ";
     console.log(data);
     data.accuracy = obj.accuracy;
 	document.getElementById('acc').innerHTML = "accuracy: " + String(data.accuracy);
