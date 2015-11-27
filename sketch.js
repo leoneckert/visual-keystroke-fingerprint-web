@@ -9,19 +9,112 @@ function setup() {
   // lets see how many keys we have specified to "watch"
   // and assign them to the allKeys_keys array
   // in order to better be able to refer to them by number
+  //full version below, this is all from the macbook keyboard.
+  var keyorder = [
+    
+    "[esc]",
+    "`",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+
+    "[tab]",
+    "q",
+    "w",
+    "e",
+    "r",
+    "t",
+
+    "[caps]",
+    "a",
+    "s",
+    "d",
+    "f",
+    "g",
+
+    "[shift]",
+    "z",
+    "x",
+    "c",
+    "v",
+    "b",
+
+    "[ctrl]",
+    "[alt]",
+    "[cmd]",
+    "[space]",
+
+
+
+    "7",
+    "8",
+    "9",
+    "0",
+    "-",
+    "=",
+    "[backspace]",
+
+    "y",
+    "u",
+    "i",
+    "o",
+    "p",
+    "[",
+    "]",
+    "[enter]",
+
+    "h",
+    "j",
+    "k",
+    "l",
+    ";",
+    "'",
+    "\\",
+
+    "n",
+    "m",
+    ",",
+    ".",
+    "/",
+    "[left]",
+    "[up]",
+    "[down]",
+    "[right]"
+    
+    // "[cmd]",
+
+  ]
+
+  // uncomment to represent the keystrokes in order of physical location on the keyboard
   var keyRange = 0;
-  for (i in allKeys) {
-    allKeys_keys[keyRange] = str(i);
+  for (var i = 0; i < keyorder.length; i++){
+    print(keyorder[i]);
+    print(allKeys["backspace"]);
+    allKeys_keys[i] = allKeys[keyorder[i]];
     keyRange++;
   }
+
+  print(allKeys_keys);
+
+  //uncomment to represent the keys in order of keyCode
+  // 
+  // for (i in allKeysInOrder) {
+  //   allKeys_keys[keyRange] = str(i);
+  //   print(str(i));
+  //   keyRange++;
+  // }
+
   // if the canvas size should be almost fullscreen we make it depend on the amount of keys we "watch"
-  var w = windowWidth - (windowWidth % 62);
-  cnv = createCanvas( w , cellHeight * allKeys_keys.length);
-  cellWidth = w / 62;
+  // var w = windowWidth - (windowWidth % 62);
+  // cnv = createCanvas( w , cellHeight * allKeys_keys.length);
+  // cellWidth = w / 62;
 
   // //specifiy size of canvas
-  var w = 650;
-  var h = 400;
+  var w = 850;
+  var h = 250;
   cellWidth = w/keyRange;
   cellHeight = h/keyRange;
   cnv = createCanvas( w ,h);
@@ -64,30 +157,87 @@ function draw() {
 
           // fill(notBlueTone,notBlueTone,greyTone);
 
-          var redTone = 255;
-          // var greenTone = 0;
-          // var blueTone = 0;
-          var greenTone = map(average, 0,1000000000/5, 0, 255);
-          var blueTone = map(average, 0,1000000000/5, 0, 255);
-          if(average >= 1000000000 - (1000000000/4)){
-            var redTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
-            var greenTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
-            // var blueTone = map(average, 0,1000000000/5, 0, 255);
+          // var redTone = 255;
+          // // var greenTone = 0;
+          // // var blueTone = 0;
+          // var greenTone = map(average, 0,1000000000/5, 0, 255);
+          // var blueTone = map(average, 0,1000000000/5, 0, 255);
+          // if(average >= 1000000000 - (1000000000/4)){
+          //   var redTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
+          //   var greenTone = map(average, 1000000000 - (1000000000/4),1000000000, 255, 0);
+          //   // var blueTone = map(average, 0,1000000000/5, 0, 255);
+          // }
+
+          // var redTone = map(average, 0,1000000000/5, 255, 233);
+          // // var greenTone = 0;
+          // // var blueTone = 0;
+          // var greenTone = map(average, 0,1000000000/5, 14, 233);
+          // var blueTone = map(average, 0,1000000000/5, 83, 233);
+          // if(average >= 1000000000 - (1000000000/4)){
+          //   var redTone = map(average, 1000000000 - (1000000000/4),1000000000, 233, 0);
+          //   var greenTone = map(average, 1000000000 - (1000000000/4),1000000000, 233, 93);
+          //   var blueTone = map(average, 1000000000 - (1000000000/4),1000000000, 233, 255);
+          // }
+          
+
+
+          //      0//////// 1000000000/10 //////// 2*(1000000000/10) //////// //////// //////// 1000000000/2 //////// //////// //////// //////// //////// 1000000000
+          var th3 = 8 * (1000000000/10);
+          var th2 = 2 * (1000000000/10);
+
+          var redTone = 0;
+          var greenTone = 0;
+          var blueTone = 0;
+          var opacity = 255;
+          if (average >= th3){
+            //blue:
+            var redTone = map(average, th3,1000000000, 255, 0);
+            var greenTone = map(average, th3,1000000000, 255, 0);
+            var blueTone = 255;
+
+          }else if (average >= th2){
+            //white:
+            var redTone = 255;
+            var greenTone = 255;
+            var blueTone = 255;
+            var opacity = map(average, th2,th3, 100, 255);
+
+          }else if (average >= 0){
+            //red:
+            var redTone = 255;
+            var greenTone = map(average, th2 / 3,th2, 0, 255);
+            var blueTone = map(average, th2 / 3,th2, 0, 255);
+            var opacity = map(average, th2 - 10000,th2, 255, 100);
+
           }
+
+
           // if(redTone <= 0){
           //   // var redTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
           //   var greenTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
           //   var blueTone = map(average, 1000000000/3,2*(1000000000/3), 0, 255);
           // }
 
-          fill(redTone, greenTone, blueTone);
+          fill(redTone, greenTone, blueTone,opacity);
           // fill(greyTone);
           stroke(255, 3);
           // strokeWeight(0.09);
           line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
           line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
           noStroke();
-          rect(i * cellWidth, j * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+          // interchangeing i and j in the folowoing rect defines the logic in which the rectangles are drawn. 
+          // i find first j, then i more intuitiv together with the keystroke by physical location visualisation this results in this logic:
+          // top left: rect appears here when a key from left half follows on a key from left half
+          // top right: rect appears here when key of right half follows on a key from left half
+          // bottom left: rect appear here when key from left half follows on a key from right half
+          // bottom right: rect appears here when key from right half follows on a key from right half. 
+          // tl:tr:
+          // top left: left half >> left half
+          // top right: left half >> right half
+          // bottom left: right half > left half
+          // bottom right: right half >> right half
+
+          rect(j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
         }
       }
     }
