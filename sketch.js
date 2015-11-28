@@ -264,6 +264,9 @@ function draw() {
           // bottom left: right half > left half
           // bottom right: right half >> right half
 
+          //option that was thought through is to use "cellWidth - map(average, 0, 1000000000, 0, cellWidth)" for the rectangles width
+          // because more strokes are short and would therefore be "more visible". 
+          // i think short and quick makes more sense to me. 
           rect(j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
         }
       }
