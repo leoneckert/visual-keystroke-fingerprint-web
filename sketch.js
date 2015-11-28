@@ -139,7 +139,7 @@ function setup() {
   saveImg.mousePressed(saveTheImg);
 
   // url = createP(leonleon);
-  optionSlider = createSlider(1, 9, 9);
+  optionSlider = createSlider(1, 10, 10);
 
 }
 
@@ -165,6 +165,19 @@ function saveTheImg(){
 
 function draw() {
   background(0);
+  stroke(255,50);
+  strokeWeight(0.5);
+  for (var i = 0; i < allKeys_keys.length; i++) {
+     // for (var j = 0; j < allKeys_keys.length; j++) {
+      
+      // line(0,i * cellHeight + cellHeight/2, w,i * cellHeight + cellHeight/2);
+      line(0, i * cellHeight + cellHeight/2, w, i * cellHeight + cellHeight/2);
+
+     // }
+   }
+   // stroke(0);
+   // strokeWeight(0.5);
+   // line(w/2 - 0.25, 0, w/2 - 0.25, h);
 
   for (var i = 0; i < allKeys_keys.length; i++) {
     if (data.keystrokes[allKeys_keys[i]]) {
@@ -305,6 +318,18 @@ function draw() {
 
           if(keyVisualOption == 9){
             cellWidth = (w/2)/keyRange;
+            rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
+            rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+            addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth); 
+          }else{
+            cellWidth = w/keyRange;
+          } 
+          if(keyVisualOption == 10){
+            cellWidth = (w/2)/keyRange;
+            fill(0);
+            rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
+            rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+            fill(redTone, greenTone, blueTone,opacity);
             rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
             rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
             addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth); 
