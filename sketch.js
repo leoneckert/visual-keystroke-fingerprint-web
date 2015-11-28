@@ -13,8 +13,12 @@ var img;
 var b = false;
 var url;
 
-var keyVisualOption = 8;
+var keyVisualOption = 10;
 var optionSlider;
+
+var blackOnWhite = false;
+
+var blackOnWhiteCheck;
 
 function setup() {
   // lets see how many keys we have specified to "watch"
@@ -139,8 +143,20 @@ function setup() {
   saveImg.mousePressed(saveTheImg);
 
   // url = createP(leonleon);
-  optionSlider = createSlider(1, 10, 10);
+  // optionSlider = createSlider(1, 10, 10);
 
+  blackOnWhiteCheck = createCheckbox(false);
+  blackOnWhiteCheck.style("display","block");
+  blackOnWhiteCheck.changed(blackOnWhiteCheckEvent);
+
+}
+
+function blackOnWhiteCheckEvent() {
+  if (this.checked()) {
+    blackOnWhite = true;
+  } else {
+    blackOnWhite = false;
+  }
 }
 
 function saveTheImg(){
@@ -165,7 +181,13 @@ function saveTheImg(){
 
 function draw() {
   background(0);
+
+  if(blackOnWhite) background(255);
+
   stroke(255,50);
+
+  if(blackOnWhite) stroke(0,50);
+
   strokeWeight(0.5);
   for (var i = 0; i < allKeys_keys.length; i++) {
      // for (var j = 0; j < allKeys_keys.length; j++) {
@@ -327,9 +349,15 @@ function draw() {
           if(keyVisualOption == 10){
             cellWidth = (w/2)/keyRange;
             fill(0);
+
+            if(blackOnWhite) fill(255);
+
             rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
             rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
             fill(redTone, greenTone, blueTone,opacity);
+
+            if(blackOnWhite) fill(0);
+
             rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
             rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
             addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth); 
@@ -368,7 +396,7 @@ function draw() {
     }
 
   }
-  keyVisualOption = floor(optionSlider.value());
+  // keyVisualOption = floor(optionSlider.value());
   // stroke(255);
   // text(str(floor(optionSlider.value())), 40,40);
   
