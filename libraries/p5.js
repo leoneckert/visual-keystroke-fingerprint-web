@@ -1,4 +1,7 @@
 /*! p5.js v0.4.17 October 13, 2015 */
+var leonleon = "kln";
+
+
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.p5 = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
 },{}],2:[function(_dereq_,module,exports){
@@ -156,6 +159,8 @@ var standardNames = [
     'Yacute', 'yacute', 'Thorn', 'thorn', 'minus', 'multiply', 'onesuperior', 'twosuperior', 'threesuperior',
     'onehalf', 'onequarter', 'threequarters', 'franc', 'Gbreve', 'gbreve', 'Idotaccent', 'Scedilla', 'scedilla',
     'Cacute', 'cacute', 'Ccaron', 'ccaron', 'dcroat'];
+
+
 
 // This is the encoding used for fonts created from scratch.
 // It loops through all glyphs and finds the appropriate unicode value.
@@ -19479,6 +19484,7 @@ p5.prototype.createImage = function(width, height) {
  *  saveCanvas();
  *  </code></div>
  */
+
 p5.prototype.saveCanvas = function() {
 
   var cnv, filename, extension;
@@ -19527,8 +19533,10 @@ p5.prototype.saveCanvas = function() {
     aText += 'Now capturing a screenshot...\n';
     aText += 'To save this image,\n';
     aText += 'go to File --> Save As.\n';
-    alert(aText);
-    window.location.href = cnv.toDataURL();
+    // alert(aText);
+    // window.location.href = cnv.toDataURL();
+    print(cnv.toDataURL());
+    leonleon = cnv.toDataURL();
   } else {
     var mimeType;
     if (typeof(extension) === 'undefined') {
@@ -19553,9 +19561,11 @@ p5.prototype.saveCanvas = function() {
     }
     var downloadMime = 'image/octet-stream';
     var imageData = cnv.toDataURL(mimeType);
-    imageData = imageData.replace(mimeType, downloadMime);
+    // imageData = imageData.replace(mimeType, downloadMime);
 
-    p5.prototype.downloadFile(imageData, filename, extension);
+    // p5.prototype.downloadFile(imageData, filename, extension);
+    leonleon = cnv.toDataURL(mimeType);
+    print(imageData);
   }
 };
 

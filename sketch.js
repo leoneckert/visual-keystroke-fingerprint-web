@@ -4,6 +4,10 @@ var allKeys_keys = [];
 var cellWidth = 20;
 var cellHeight = 10;
 
+var saveImg;
+var img;
+var b = false;
+var url;
 
 function setup() {
   // lets see how many keys we have specified to "watch"
@@ -123,7 +127,30 @@ function setup() {
   // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
   cnv.background(0);
 
+  // saveImg = createButton("save");
+  // saveImg.mousePressed(saveTheImg);
 
+  // url = createP(leonleon);
+
+}
+
+function saveTheImg(){
+  //for the follwoing i changed some lines in the p5.js library to get access to the images url. 
+  saveCanvas('myKeyprint','jpg');
+  url = createP(leonleon);
+  // url.style("color: #FFFFFF")
+  // img = createImage(100,100);
+  // img.loadPixels();
+  // for (i = 0; i < img.width; i++) {
+  //   for (j = 0; j < img.height; j++) {
+  //     img.set(i, j, color(0, 90, 102));
+  //   }
+  // } 
+  // img.updatePixels();
+  // b = true;
+
+
+  // img = createImg('http://p5js.org/img/asterisk-01.png');
 }
 
 function draw() {
@@ -242,5 +269,8 @@ function draw() {
       }
     }
 
+  }
+  if(b) {
+    image(img,100,100);
   }
 }
