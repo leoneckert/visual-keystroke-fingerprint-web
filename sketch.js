@@ -310,7 +310,7 @@ function draw() {
               var len = 5;
             }
             if(keyVisualOption == 5){
-              var len = 1;
+              var len = 0.5;
             }
 
             fill(0, 0, 0);
