@@ -9,6 +9,9 @@ var img;
 var b = false;
 var url;
 
+var keyVisualOption = 8;
+var optionSlider;
+
 function setup() {
   // lets see how many keys we have specified to "watch"
   // and assign them to the allKeys_keys array
@@ -131,6 +134,7 @@ function setup() {
   // saveImg.mousePressed(saveTheImg);
 
   // url = createP(leonleon);
+  optionSlider = createSlider(1, 8, 1);
 
 }
 
@@ -151,6 +155,7 @@ function saveTheImg(){
 
 
   // img = createImg('http://p5js.org/img/asterisk-01.png');
+  
 }
 
 function draw() {
@@ -158,6 +163,10 @@ function draw() {
 
   for (var i = 0; i < allKeys_keys.length; i++) {
     if (data.keystrokes[allKeys_keys[i]]) {
+
+      //this option is to stack them up, to also see overall if one key in partiular has a wait after it:
+      var addUpWidth = 0;
+
       for (var j = 0; j < allKeys_keys.length; j++) {
         if (data.keystrokes[allKeys_keys[i]][allKeys_keys[j]]) {
           // print("lengt of this is: ");
@@ -249,8 +258,13 @@ function draw() {
           // fill(greyTone);
           stroke(255, 3);
           // strokeWeight(0.09);
-          line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
-          line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
+
+          //line grid:
+
+          if(keyVisualOption == 3){
+            line(0,j * cellHeight + cellHeight/2, i * cellWidth,j * cellHeight + cellHeight/2);
+            line(i * cellWidth, 0, i * cellWidth, j * cellHeight);
+          } 
           noStroke();
           // interchangeing i and j in the folowoing rect defines the logic in which the rectangles are drawn. 
           // i find first j, then i more intuitiv together with the keystroke by physical location visualisation this results in this logic:
@@ -267,13 +281,56 @@ function draw() {
           //option that was thought through is to use "cellWidth - map(average, 0, 1000000000, 0, cellWidth)" for the rectangles width
           // because more strokes are short and would therefore be "more visible". 
           // i think short and quick makes more sense to me. 
-          rect(j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+          
+          if(keyVisualOption == 1 || keyVisualOption == 3 || keyVisualOption == 8){
+            rect(j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);  
+          }
+          
+          if(keyVisualOption == 2){
+            rect(j * cellWidth, i * cellHeight, cellWidth - map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+          }
+          //this option is to stack them up, to also see overall if one key in partiular has a wait after it:
+          if(keyVisualOption == 4 || keyVisualOption == 5 ||keyVisualOption == 6 || keyVisualOption == 7){
+            rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+            addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth);      
+          }
+          if(keyVisualOption == 8){
+            addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth);  
+          }
+
+        }else{
+          // yet another way is to give boxes a certain colour if they have not been hit. 
+           if(keyVisualOption == 5 ||keyVisualOption == 6 || keyVisualOption == 7){
+            // var len = cellWidth;
+            if(keyVisualOption == 7){
+              var len = cellWidth;
+            }
+            // var len = 5;
+            if(keyVisualOption == 6){
+              var len = 2;
+            }
+            if(keyVisualOption == 5){
+              var len = 2;
+            }
+
+            fill(0, 0, 0);
+            stroke(100);
+            strokeWeight(0.1);
+            rect(addUpWidth, i * cellHeight,len, cellHeight);
+            addUpWidth = addUpWidth + len;
+          }
         }
+
+      }
+      if(keyVisualOption == 8){
+        stroke(255,80);
+        line(0, i * cellHeight, addUpWidth,i * cellHeight);
       }
     }
 
   }
-  if(b) {
-    image(img,100,100);
-  }
+  keyVisualOption = floor(optionSlider.value());
+  // stroke(255);
+  // text(str(floor(optionSlider.value())), 40,40);
+  
 }
