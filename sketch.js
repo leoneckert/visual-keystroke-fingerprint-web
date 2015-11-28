@@ -1,6 +1,10 @@
 var cnv;
 var allKeys_keys = [];
 
+var w;
+var h;
+var keyRange;
+
 var cellWidth = 20;
 var cellHeight = 10;
 
@@ -96,7 +100,7 @@ function setup() {
   ]
 
   // uncomment to represent the keystrokes in order of physical location on the keyboard
-  var keyRange = 0;
+  keyRange = 0;
   for (var i = 0; i < keyorder.length; i++){
     print(keyorder[i]);
     print(allKeys["backspace"]);
@@ -120,9 +124,10 @@ function setup() {
   // cellWidth = w / 62;
 
   // //specifiy size of canvas
-  var w = 850;
-  var h = 250;
+  w = 850;
+  h = 250;
   cellWidth = w/keyRange;
+
   cellHeight = h/keyRange;
   cnv = createCanvas( w ,h);
 
@@ -130,11 +135,11 @@ function setup() {
   // cnv = createCanvas(cellWidth * allKeys_keys.length, cellHeight * allKeys_keys.length);
   cnv.background(0);
 
-  // saveImg = createButton("save");
-  // saveImg.mousePressed(saveTheImg);
+  saveImg = createButton("save");
+  saveImg.mousePressed(saveTheImg);
 
   // url = createP(leonleon);
-  optionSlider = createSlider(1, 8, 1);
+  optionSlider = createSlider(1, 9, 9);
 
 }
 
@@ -297,6 +302,15 @@ function draw() {
           if(keyVisualOption == 8){
             addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth);  
           }
+
+          if(keyVisualOption == 9){
+            cellWidth = (w/2)/keyRange;
+            rect(w/2 + j * cellWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight); 
+            rect(addUpWidth, i * cellHeight, map(average, 0, 1000000000, 0, cellWidth), cellHeight);
+            addUpWidth = addUpWidth + map(average, 0, 1000000000, 0, cellWidth); 
+          }else{
+            cellWidth = w/keyRange;
+          } 
 
         }else{
           // yet another way is to give boxes a certain colour if they have not been hit. 
