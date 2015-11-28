@@ -307,10 +307,10 @@ function draw() {
             }
             // var len = 5;
             if(keyVisualOption == 6){
-              var len = 2;
+              var len = 5;
             }
             if(keyVisualOption == 5){
-              var len = 2;
+              var len = 1;
             }
 
             fill(0, 0, 0);
