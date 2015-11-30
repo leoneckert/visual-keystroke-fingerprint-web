@@ -1,3 +1,5 @@
 .DS_Store
 fingerprint_screenshots
 notes
+node_modules
+tu.js

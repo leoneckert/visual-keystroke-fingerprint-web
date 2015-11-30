@@ -101,16 +101,8 @@ function alert_data(name, family){
 
 
 // other key events: keydown, keypress
-window.addEventListener("keydown", handler);
-document.getElementById('file').addEventListener('change', onChange);
+// window.addEventListener("keydown", handler);
+// document.getElementById('file').addEventListener('change', onChange);
 
 
 
-
-
-// Make the request
-// client.userInfo(function (err, data) {
-//     data.user.blogs.forEach(function (blog) {
-//         console.log(blog.name);
-//     });
-// });

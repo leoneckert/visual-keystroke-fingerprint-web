@@ -1,10 +1,5 @@
-// var tumblr = require('tumblr');
-
-// Authenticate via OAuth
-var tumblr = require('tumblr');
-
-
-var client = tumblr.Client({
+var tumblr = require('tumblr.js');
+var client = tumblr.createClient({
   consumer_key: 'YIBdo08eGqZgBXGom0spwzE0CVgtsSneeDzwKCn8mZYGEKI3jq',
   consumer_secret: 'htVQVnRLFVnIcykr52pYF0HXk3mjbqAHCoeH1PsaEE19z8NnWy',
   token: 'MT7RZkBg1CiWVXkNzQKrf6nADQQ3Inwn0dA52VHZXotayL9xNI',
@@ -12,24 +7,11 @@ var client = tumblr.Client({
 });
 
 
-// var blog = new tumblr.Blog('keyprints.tumblr.com', oauth);
- 
-// // blog.text({limit: 2}, function(error, response) {
-// //   if (error) {
-// //     // throw new Error(error);
-// //     console.log('user');
-
-// //   }
- 
-// //   console.log(response.posts);
-// // });
- 
-// var user = new tumblr.User(oauth);
- 
-// user.info(function(error, response) {
-//   if (error) {
-//     throw new Error(error);
-//   }
- 
-//   console.log(response.user);
+// Make the request
+// client.userInfo(function (err, data) {
+//     data.user.blogs.forEach(function (blog) {
+//         console.log(blog.name);
+//     });
 // });
+
+client.photo('keyprints', { source: 'http://i.imgur.com/ghrMbDS.jpg' }, function (err) {console.log(err);});

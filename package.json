@@ -1,0 +1,22 @@
+{
+  "name": "keyprints",
+  "version": "1.0.0",
+  "description": "visualising keyprints",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoneckert/visual-keystroke-fingerprint-web.git"
+  },
+  "author": "leon eckert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoneckert/visual-keystroke-fingerprint-web/issues"
+  },
+  "homepage": "https://github.com/leoneckert/visual-keystroke-fingerprint-web#readme",
+  "dependencies": {
+    "tumblr.js": "0.0.7"
+  }
+}
